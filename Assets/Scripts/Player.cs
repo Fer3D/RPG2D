@@ -7,9 +7,12 @@ public class Player : MonoBehaviour
     Rigidbody2D rb2D;
     Vector2 movementInput;
 
+    private Animator animator;
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -18,6 +21,9 @@ public class Player : MonoBehaviour
         movementInput.y = Input.GetAxisRaw("Vertical");
 
         movementInput = movementInput.normalized;
+
+        animator.SetFloat("Horizontal", Mathf.Abs(movementInput.x));
+        animator.SetFloat("Vertical", Mathf.Abs(movementInput.y));
     }
 
     private void FixedUpdate()
