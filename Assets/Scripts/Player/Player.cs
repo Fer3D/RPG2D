@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
         animator.SetFloat("Vertical", Mathf.Abs(movementInput.y));
 
         CheckFlip();
+
+        OpenCloseInventory();
     }
 
     private void FixedUpdate()
@@ -36,6 +38,17 @@ public class Player : MonoBehaviour
     void CheckFlip()
     {
         if (movementInput.x > 0 && transform.localScale.x < 0 || movementInput.x < 0 && transform.localScale.x > 0)
+        {
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+        }
     }
+
+    void OpenCloseInventory()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            UIManager.instance.OpenOrCloseInventory();
+        }
+    }
+
 }
