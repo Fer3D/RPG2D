@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -8,13 +9,18 @@ public class Enemy : MonoBehaviour
 
     public Transform targetTransform;
 
+    NavMeshAgent navMeshAgent;
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.updateRotation = false;
+        navMeshAgent.updateUpAxis = false;
     }
 
     void Update()
     {
-        rb2D.MovePosition(Vector2.MoveTowards(transform.position, targetTransform.position, speed * Time.deltaTime));
+        navMeshAgent.SetDestination(targetTransform.position);
     }
 }

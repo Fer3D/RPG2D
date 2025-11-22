@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    ".NETStandard,Version=v2.1": {}
+    ".NETStandard,Version=v2.1": {
+      "NavMeshPlus/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/NavMeshPlus.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/NavMeshPlus.dll": {}
+        }
+      },
+      "NavMeshPlusEditor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "NavMeshPlus": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/NavMeshPlusEditor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/NavMeshPlusEditor.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "NavMeshPlus/1.0.0": {
+      "type": "project",
+      "path": "NavMeshPlus.csproj",
+      "msbuildProject": "NavMeshPlus.csproj"
+    },
+    "NavMeshPlusEditor/1.0.0": {
+      "type": "project",
+      "path": "NavMeshPlusEditor.csproj",
+      "msbuildProject": "NavMeshPlusEditor.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETStandard,Version=v2.1": []
+    ".NETStandard,Version=v2.1": [
+      "NavMeshPlus >= 1.0.0",
+      "NavMeshPlusEditor >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Cuboxis\\.nuget\\packages\\": {},
@@ -38,7 +76,14 @@
       "frameworks": {
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "G:\\Unity-Projects\\RPG2D\\NavMeshPlus.csproj": {
+              "projectPath": "G:\\Unity-Projects\\RPG2D\\NavMeshPlus.csproj"
+            },
+            "G:\\Unity-Projects\\RPG2D\\NavMeshPlusEditor.csproj": {
+              "projectPath": "G:\\Unity-Projects\\RPG2D\\NavMeshPlusEditor.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
