@@ -9,10 +9,16 @@ public class Player : MonoBehaviour
 
     private Animator animator;
 
+    private int currentHealth;
+    public int maxHealth = 100;
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        currentHealth = maxHealth;
+        UIManager.instance.UpdateHealth(currentHealth);
     }
 
     void Update()

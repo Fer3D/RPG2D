@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public TMP_Text moneyCountText;
     public TMP_Text woodCountText;
     public TMP_Text meatCountText;
+    public TMP_Text healthText;
 
     public static UIManager instance { get; private set; }
 
@@ -41,5 +42,10 @@ public class UIManager : MonoBehaviour
     public void UpdateMeat(int value)
     {
         meatCountText.text = value.ToString();
+    }
+
+    public void UpdateHealth(int hpValue)
+    {
+        healthText.text = hpValue.ToString();
     }
 }
