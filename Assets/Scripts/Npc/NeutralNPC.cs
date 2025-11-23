@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
@@ -5,9 +6,6 @@ using UnityEngine.AI;
 public class NeutralNPC : MonoBehaviour
 {
     private Rigidbody2D rb2D;
-
-    public Transform targetTransform;
-
     NavMeshAgent navMeshAgent;
 
     Animator animator;
@@ -24,6 +22,20 @@ public class NeutralNPC : MonoBehaviour
         Yellow
     }
 
+    [Header("Movement Type")]
+    public MovementType movementType;
+
+    public enum MovementType
+    {
+        Path,
+        RandomMovement
+    }
+
+    [Header("Path")]
+    public Transform[] pathPoints;
+    public float waitTimeInPoint = 3;
+    private int indexPath = 0;
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -33,12 +45,15 @@ public class NeutralNPC : MonoBehaviour
         navMeshAgent.updateUpAxis = false;
 
         ApplySkin();
+
+        if (movementType == MovementType.Path)
+        {
+            StartCoroutine(FollowPath());
+        }
     }
 
     void Update()
     {
-        navMeshAgent.SetDestination(targetTransform.position);
-
         AdjustAnimationsAndRotation();
     }
 
@@ -63,5 +78,25 @@ public class NeutralNPC : MonoBehaviour
         int skinIndex = (int)selectedSkin;
 
         animator.runtimeAnimatorController = animatorControllers[skinIndex];
+    }
+
+    IEnumerator FollowPath()
+    {
+        while (true)
+        {
+            if (pathPoints.Length > 0)
+            {
+                navMeshAgent.SetDestination(pathPoints[indexPath].position);
+
+                while (!navMeshAgent.pathPending && navMeshAgent.remainingDistance > 0.1f)
+                {
+                    yield return null;
+                }
+                yield return new WaitForSeconds(waitTimeInPoint);
+
+                indexPath = (indexPath + 1) % pathPoints.Length;
+            }
+            yield return null;
+        }
     }
 }
