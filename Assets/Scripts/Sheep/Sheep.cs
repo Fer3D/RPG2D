@@ -40,6 +40,7 @@ public class Sheep : MonoBehaviour
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-
     }
+
+
 }
