@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,6 +12,18 @@ public class NeutralNPC : MonoBehaviour
 
     Animator animator;
 
+    [Header("Skin")]
+    public AnimatorController[] animatorControllers;
+
+    public NPCSkin selectedSkin;
+    public enum NPCSkin
+    {
+        Blue,
+        Purple,
+        Red,
+        Yellow
+    }
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -18,6 +31,8 @@ public class NeutralNPC : MonoBehaviour
         animator = GetComponent<Animator>();
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
+
+        ApplySkin();
     }
 
     void Update()
@@ -41,5 +56,12 @@ public class NeutralNPC : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
+    }
+
+    public void ApplySkin()
+    {
+        int skinIndex = (int)selectedSkin;
+
+        animator.runtimeAnimatorController = animatorControllers[skinIndex];
     }
 }
