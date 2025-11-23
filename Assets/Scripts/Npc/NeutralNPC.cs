@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class NeutralNPC : MonoBehaviour
 {
     private Rigidbody2D rb2D;
 
