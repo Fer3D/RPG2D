@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     private int currentHealth;
     public int maxHealth = 100;
 
+    private bool gameIsPaused = false;
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -34,6 +36,8 @@ public class Player : MonoBehaviour
         CheckFlip();
 
         OpenCloseInventory();
+
+        OpenClosePauseMenu();
     }
 
     private void FixedUpdate()
@@ -57,4 +61,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OpenClosePauseMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (gameIsPaused)
+            {
+                UIManager.instance.ResumeGame();
+                gameIsPaused = false;
+            }
+            else
+            {
+                UIManager.instance.PauseGame();
+                gameIsPaused = true;
+            }
+        }
+    }
 }
