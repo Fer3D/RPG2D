@@ -19,6 +19,10 @@ public class Player : MonoBehaviour
 
     Vector2 lasMovementDir = Vector2.right;
 
+    Vector2 attackDir;
+    public float attackRange = 1.2f;
+    public LayerMask enemyLayer;
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -107,7 +111,7 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isAttacking)
         {
             int dir = GetDirectionIndex(lasMovementDir);
-            Vector2 attackDir = GetAttackInputDirection();
+            attackDir = GetAttackInputDirection();
             int attackDirection = GetDirectionIndex(attackDir);
 
             animator.SetInteger("AttackDirection", attackDirection);
@@ -159,5 +163,16 @@ public class Player : MonoBehaviour
             return dir.y > 0 ? 2 : 3;
         }
     }
-    
+
+    public void DetectAndDamageEnemies()
+    {
+        Vector2 attackPoint = (Vector2)transform.position + attackDir.normalized * attackRange * 0.5f;
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint, attackRange, enemyLayer);
+
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            Debug.Log("Hit " + enemy.name);
+            Destroy(enemy.gameObject);
+        }
+    }
 }

@@ -1825,7 +1825,7 @@ Transform:
   m_GameObject: {fileID: 281155701}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.33, y: 27.7, z: -10}
+  m_LocalPosition: {x: -1.03, y: 1.23, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3046,7 +3046,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.33, y: 27.7, z: -10}
+  m_LocalPosition: {x: -1.03, y: 1.23, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8879,6 +8879,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   speed: 5
   maxHealth: 100
+  attackRange: 1.2
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!61 &1248692037
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9019,7 +9023,7 @@ Transform:
   m_GameObject: {fileID: 1248692035}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.33, y: 27.7, z: 0}
+  m_LocalPosition: {x: -1.03, y: 1.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50348,11 +50352,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5855655936222496672, guid: 0b70f169b6f07304499e7e22df2be570, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.74
+      value: 2.51
       objectReference: {fileID: 0}
     - target: {fileID: 5855655936222496672, guid: 0b70f169b6f07304499e7e22df2be570, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.95
+      value: -3.86
       objectReference: {fileID: 0}
     - target: {fileID: 5855655936222496672, guid: 0b70f169b6f07304499e7e22df2be570, type: 3}
       propertyPath: m_LocalPosition.z

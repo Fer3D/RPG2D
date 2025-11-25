@@ -26,7 +26,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 11125
+  controlID: 11480
   draggingID: 0
 --- !u!114 &2
 MonoBehaviour:
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 10956
+  controlID: 11311
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -174,8 +174,8 @@ MonoBehaviour:
     y: 0
     width: 1049
     height: 655
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 226}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 5}
   m_Panes:
   - {fileID: 5}
@@ -789,9 +789,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -19.322264, y: 28.273998, z: 0.16309157}
+    m_Target: {x: 1.0891229, y: -1.3824456, z: 0.18087538}
     speed: 2
-    m_Value: {x: -19.322264, y: 28.273998, z: 0.16309157}
+    m_Value: {x: 1.0891229, y: -1.3824456, z: 0.18087538}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -841,9 +841,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 5.7640553
+    m_Target: 3.9856942
     speed: 2
-    m_Value: 5.7640553
+    m_Value: 3.9856942
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -934,14 +934,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.644795
+    - e00: 0.43652418
       e01: 0
       e02: 0
-      e03: 211.61961
+      e03: 322.21722
       e10: 0
-      e11: 0.644795
+      e11: 0.43652418
       e12: 0
-      e13: 220.40259
+      e13: 224.06995
       e20: 0
       e21: 0
       e22: 1
@@ -1032,7 +1032,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 52294
+  m_LastSelectedObjectID: -17752
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1093,7 +1093,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 11024
+  controlID: 11379
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -1114,8 +1114,8 @@ MonoBehaviour:
     y: 0
     width: 447
     height: 734
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 226}
+  m_MaxSize: {x: 4002, y: 4026}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -1333,8 +1333,8 @@ MonoBehaviour:
     y: 0
     width: 489
     height: 1293
-  m_MinSize: {x: 232, y: 276}
-  m_MaxSize: {x: 10002, y: 10026}
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -1461,24 +1461,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 44a8ffff
-    m_LastClickedInstanceID: -22460
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: a8baffff
+    m_LastClickedInstanceID: -17752
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 660c0100480b0100b2c00000e0b90000ccb6000086c0000074c3000022c8000096c8000086dc000024c4000020c40000400b0100e62c0100f63101007c32010002330100e6e20000aece00005adc000084dc0000ded1000012cd0000face000056dc000026d00000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: PlayerWarriorBlue
+      m_OriginalName: PlayerWarriorBlue
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 54284
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 16}
@@ -1562,7 +1562,7 @@ MonoBehaviour:
     m_CachedPref: 473
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -22460
+  m_LastInspectedObjectInstanceID: -17752
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
