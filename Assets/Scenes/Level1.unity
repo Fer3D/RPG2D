@@ -31895,13 +31895,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ecd07403a8735641b3187c7d0ee94ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NeutralNPC
+  movementType: 1
   animatorControllers:
   - {fileID: 9100000, guid: 980a5e277e436d04d9918b649d5569be, type: 2}
   - {fileID: 9100000, guid: 0ae7c74166167174a9bb3b07e40b9b6d, type: 2}
   - {fileID: 9100000, guid: bbd43c1c01840b64988bb1a7eca199fa, type: 2}
   - {fileID: 9100000, guid: cbf7d81cbe95e474db05b7f0d06e8129, type: 2}
   selectedSkin: 0
-  movementType: 0
   pathPoints:
   - {fileID: 367540494}
   - {fileID: 1340629744}
@@ -50183,21 +50183,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 513977596}
     m_Modifications:
-    - target: {fileID: 3735908434645189243, guid: 0b70f169b6f07304499e7e22df2be570, type: 3}
-      propertyPath: targetTransform
-      value: 
-      objectReference: {fileID: 1364333224}
     - target: {fileID: 5290583573832859479, guid: 0b70f169b6f07304499e7e22df2be570, type: 3}
       propertyPath: m_Name
       value: EnemyTorchRed
       objectReference: {fileID: 0}
     - target: {fileID: 5855655936222496672, guid: 0b70f169b6f07304499e7e22df2be570, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.84
+      value: -4.1
       objectReference: {fileID: 0}
     - target: {fileID: 5855655936222496672, guid: 0b70f169b6f07304499e7e22df2be570, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.45
+      value: -2.4
       objectReference: {fileID: 0}
     - target: {fileID: 5855655936222496672, guid: 0b70f169b6f07304499e7e22df2be570, type: 3}
       propertyPath: m_LocalPosition.z
@@ -50231,10 +50227,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8588817708267095960, guid: 0b70f169b6f07304499e7e22df2be570, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: d741b2fc9ff40f94293670c5a9dd3484, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

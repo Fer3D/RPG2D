@@ -181,7 +181,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a3fc69d9eb58640933db61343cfbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  targetTransform: {fileID: 0}
+  movementType: 0
+  animatorControllers:
+  - {fileID: 9100000, guid: 4a541826209cc824db1cfc0550808845, type: 2}
+  - {fileID: 9100000, guid: 30d7ef1e843d5324d8f0177f40c7bc54, type: 2}
+  - {fileID: 9100000, guid: d741b2fc9ff40f94293670c5a9dd3484, type: 2}
+  - {fileID: 9100000, guid: 10e3e465ce7bc3a48aaef2242203db17, type: 2}
+  selectedSkin: 2
+  pathPoints: []
+  waitTimeInPoint: 3
+  attackRange: 1.5
+  stopDistance: 0.5
+  attackCooldown: 2
+  lastAttackTime: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!95 &8588817708267095960
 Animator:
   serializedVersion: 7
