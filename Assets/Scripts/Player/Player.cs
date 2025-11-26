@@ -9,15 +9,14 @@ public class Player : MonoBehaviour
 
     private Animator animator;
 
-    private int currentHealth;
-    public int maxHealth = 100;
-
     private bool gameIsPaused = false;
 
     private bool isAttacking = false;
-    private bool canMove = true;
 
-    Vector2 lasMovementDir = Vector2.right;
+    [HideInInspector]
+    public bool canMove = true;
+
+    Vector2 lastMovementDir = Vector2.right;
 
     Vector2 attackDir;
     public float attackRange = 1.2f;
@@ -27,21 +26,13 @@ public class Player : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
-        currentHealth = maxHealth;
-        UIManager.instance.UpdateHealth(currentHealth);
     }
 
     void Update()
     {
-        if (isAttacking)
-            canMove = false;
-        else
-            canMove = true;
-
         if (movementInput != Vector2.zero)
         {
-            lasMovementDir = movementInput;
+            lastMovementDir = movementInput;
         }
 
         movementInput.x = Input.GetAxisRaw("Horizontal");
@@ -66,10 +57,6 @@ public class Player : MonoBehaviour
         if (canMove)
         {
             rb2D.linearVelocity = movementInput * speed;
-        }
-        else
-        {
-            rb2D.linearVelocity = Vector2.zero;
         }
     }
 
@@ -110,7 +97,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !isAttacking)
         {
-            int dir = GetDirectionIndex(lasMovementDir);
+            int dir = GetDirectionIndex(lastMovementDir);
             attackDir = GetAttackInputDirection();
             int attackDirection = GetDirectionIndex(attackDir);
 
@@ -125,11 +112,14 @@ public class Player : MonoBehaviour
     public void StartAttack()
     {
         isAttacking = true;
+        rb2D.linearVelocity = Vector2.zero;
+        canMove = false;
     }
 
     public void EndAttack()
     {
         isAttacking = false;
+        canMove = true;
     }
     Vector2 GetAttackInputDirection()
     {

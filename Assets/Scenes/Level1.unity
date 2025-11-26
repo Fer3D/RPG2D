@@ -8699,6 +8699,7 @@ GameObject:
   - component: {fileID: 1248692036}
   - component: {fileID: 1248692041}
   - component: {fileID: 1248692042}
+  - component: {fileID: 1248692044}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -8719,7 +8720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   speed: 5
-  maxHealth: 100
+  canMove: 1
   attackRange: 1.2
   targetLayer:
     serializedVersion: 2
@@ -8950,6 +8951,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.4791727, y: 0.110060215}
   m_EdgeRadius: 0
+--- !u!114 &1248692044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248692035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d05e59327ca127544845f1e3ea7805ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageReceiverPlayer
+  maxHealth: 5
+  forceImpulse: 5
 --- !u!1001 &1266899504
 PrefabInstance:
   m_ObjectHideFlags: 0

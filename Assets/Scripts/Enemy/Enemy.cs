@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -86,17 +87,26 @@ public class Enemy : NPC
         Vector2 attackPoint = (Vector2)transform.position + playerDirection.normalized * attackRange * 0.5f;
         Collider2D[] hitTargets = Physics2D.OverlapCircleAll(attackPoint, attackRange, targetLayer);
 
+        HashSet<GameObject> damagedTargets = new HashSet<GameObject>();
+
         foreach (Collider2D target in hitTargets)
         {
-            Vector2 hitDirection = (target.transform.position - transform.position).normalized;
-
             GameObject obj = target.gameObject;
+
+            if (damagedTargets.Contains(obj))
+            {
+                continue;
+            }
 
             int layer = obj.layer;
 
             if (layer == LayerMask.NameToLayer("Player"))
             {
-                // obj.GetComponent<DamageReceiver>().ApplyDamage(1, true, false, hitDirection);
+                Vector2 hitDirection = (target.transform.position - transform.position).normalized;
+
+                obj.GetComponent<DamageReceiverPlayer>().ApplyDamage(1, true, false, hitDirection);
+
+                damagedTargets.Add(obj);
             }
         }
     }
