@@ -7,12 +7,15 @@ public class DamageReceiver : MonoBehaviour
     private int currentHealth;
 
     [Header("Drop")]
-    public GameObject itemToDrop;
-    public Rigidbody2D rb2D;
+    public GameObject[] itemToDrop;
+    private Rigidbody2D rb2D;
+    private Animator animator;
     public float forceImpulse = 5;
 
     void Start()
     {
+        rb2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         currentHealth = maxHealth;
     }
 
@@ -29,7 +32,7 @@ public class DamageReceiver : MonoBehaviour
 
         if (applyHitAnimation)
         {
-            
+            animator.SetTrigger("Hit");
         }
 
         if (currentHealth <= 0)
@@ -47,7 +50,10 @@ public class DamageReceiver : MonoBehaviour
 
     void DropItem()
     {
-        Instantiate(itemToDrop, transform.position + Vector3.up, Quaternion.identity);
+        for (int i = 0; i < itemToDrop.Length; i++)
+        {
+            Instantiate(itemToDrop[i], transform.position, Quaternion.identity);
+        }
     }
 
     void Die()

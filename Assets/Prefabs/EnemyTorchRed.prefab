@@ -239,6 +239,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
   maxHealth: 2
-  itemToDrop: {fileID: 3776575295028377494, guid: 2786288a596908d49a5984aa57d5afb8, type: 3}
-  rb2D: {fileID: 2475246840697231887}
+  itemToDrop:
+  - {fileID: 3776575295028377494, guid: 2786288a596908d49a5984aa57d5afb8, type: 3}
   forceImpulse: 5

@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 
     Vector2 attackDir;
     public float attackRange = 1.2f;
-    public LayerMask enemyLayer;
+    public LayerMask targetLayer;
 
     void Start()
     {
@@ -164,15 +164,31 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void DetectAndDamageEnemies()
+    public void DetectAndDamageTargets()
     {
         Vector2 attackPoint = (Vector2)transform.position + attackDir.normalized * attackRange * 0.5f;
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint, attackRange, enemyLayer);
+        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(attackPoint, attackRange, targetLayer);
 
-        foreach (Collider2D enemy in hitEnemies)
+        foreach (Collider2D target in hitTargets)
         {
-            Vector2 hitDirection = (enemy.transform.position - transform.position).normalized;
-            enemy.GetComponent<DamageReceiver>().ApplyDamage(1, true, false, hitDirection);
+            Vector2 hitDirection = (target.transform.position - transform.position).normalized;
+
+            GameObject obj = target.gameObject;
+
+            int layer = obj.layer;
+
+            if (layer == LayerMask.NameToLayer("Enemy"))
+            {
+                obj.GetComponent<DamageReceiver>().ApplyDamage(1, true, false, hitDirection);
+            }
+            else if (layer == LayerMask.NameToLayer("Sheep"))
+            {
+                obj.GetComponent<DamageReceiver>().ApplyDamage(1, true, false, hitDirection);
+            }
+            else if (layer == LayerMask.NameToLayer("Tree"))
+            {
+                obj.GetComponent<DamageReceiver>().ApplyDamage(1, false, true, hitDirection);
+            }
         }
     }
 }
