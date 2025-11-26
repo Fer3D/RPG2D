@@ -171,8 +171,8 @@ public class Player : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("Hit " + enemy.name);
-            Destroy(enemy.gameObject);
+            Vector2 hitDirection = (enemy.transform.position - transform.position).normalized;
+            enemy.GetComponent<DamageReceiver>().ApplyDamage(1, true, false, hitDirection);
         }
     }
 }

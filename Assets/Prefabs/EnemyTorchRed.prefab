@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3735908434645189243}
   - component: {fileID: 8588817708267095960}
   - component: {fileID: 5336918643926020697}
+  - component: {fileID: 2372580801670032458}
   m_Layer: 6
   m_Name: EnemyTorchRed
   m_TagString: Untagged
@@ -225,3 +226,19 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2372580801670032458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5290583573832859479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3544c6030b35e6749acd7c9147d2cf9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
+  maxHealth: 2
+  itemToDrop: {fileID: 3776575295028377494, guid: 2786288a596908d49a5984aa57d5afb8, type: 3}
+  rb2D: {fileID: 2475246840697231887}
+  forceImpulse: 5
