@@ -7,7 +7,7 @@ public class Enemy : NPC
     public float attackRange = 1.5f;
     public float stopDistance = 0.5f;
     public float attackCooldown = 2f;
-    public float lastAttackTime = 0;
+    private float lastAttackTime = 0;
 
     private bool isAttacking = false;
     private bool canMove = true;

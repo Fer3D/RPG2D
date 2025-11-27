@@ -38,11 +38,11 @@ public class NPC : MonoBehaviour
     //public float maxDistanceFromOrigin = 1f;
     //protected Vector3 originPosition;
 
-    //[Header("Player Chase")]
-    //public bool canChasePlayer = false;
-    //public float chaseRadius = 6f;
-    //public float stopDistanceFromPlayer = 1.5f;
-    //protected bool isChasingPlayer = false;
+    [Header("Player Chase")]
+    public bool canChasePlayer = false;
+    public float chaseRadius = 6f;
+    public float stopDistanceFromPlayer = 1.5f;
+    protected bool isChasingPlayer = false;
 
     private Coroutine currentMovementRoutine;
 
@@ -67,9 +67,9 @@ public class NPC : MonoBehaviour
     protected virtual void Update()
     {
         AdjustAnimationsAndRotation();
-        //HandleFleeLogic();
-        //HandleReturnToOrigin();
-        //HandleChaseLogic();
+        // HandleFleeLogic();
+        // HandleReturnToOrigin();
+        HandleChaseLogic();
     }
 
     protected void AdjustAnimationsAndRotation()
@@ -181,37 +181,37 @@ public class NPC : MonoBehaviour
     //    }
     //}
 
-    //protected void HandleChaseLogic()
-    //{
-    //    if (!canChasePlayer || playerTransform == null || isFleeing) return;
+    protected void HandleChaseLogic()
+    {
+        if (!canChasePlayer /*|| playerTransform == null || isFleeing*/) return;
 
-    //    float distance = Vector3.Distance(transform.position, playerTransform.position);
+        float distance = Vector3.Distance(transform.position, playerTransform.position);
 
-    //    if (distance <= chaseRadius)
-    //    {
-    //        if (!isChasingPlayer)
-    //        {
-    //            StopCurrentRoutine();
-    //            isChasingPlayer = true;
-    //        }
+        if (distance <= chaseRadius)
+        {
+            if (!isChasingPlayer)
+            {
+                StopCurrentRoutine();
+                isChasingPlayer = true;
+            }
 
-    //        if (distance > stopDistanceFromPlayer)
-    //        {
-    //            navMeshAgent.stoppingDistance = stopDistanceFromPlayer;
-    //            navMeshAgent.SetDestination(playerTransform.position);
-    //        }
-    //        else
-    //        {
-    //            navMeshAgent.ResetPath();
-    //        }
-    //    }
-    //    else if (isChasingPlayer)
-    //    {
-    //        navMeshAgent.ResetPath();
-    //        isChasingPlayer = false;
-    //        ResumeOriginalBehavior();
-    //    }
-    //}
+            if (distance > stopDistanceFromPlayer)
+            {
+                navMeshAgent.stoppingDistance = stopDistanceFromPlayer;
+                navMeshAgent.SetDestination(playerTransform.position);
+            }
+            else
+            {
+                navMeshAgent.ResetPath();
+            }
+        }
+        else if (isChasingPlayer)
+        {
+            navMeshAgent.ResetPath();
+            isChasingPlayer = false;
+            ResumeOriginalBehavior();
+        }
+    }
 
     public virtual void ApplySkin()
     {
