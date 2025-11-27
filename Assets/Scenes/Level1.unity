@@ -461,18 +461,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 513977596}
     m_Modifications:
-    - target: {fileID: 1325763113782888211, guid: f300c07c8dec54444bb4a5204277a96f, type: 3}
-      propertyPath: canFlee
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325763113782888211, guid: f300c07c8dec54444bb4a5204277a96f, type: 3}
-      propertyPath: movementType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1325763113782888211, guid: f300c07c8dec54444bb4a5204277a96f, type: 3}
-      propertyPath: targetTransform
-      value: 
-      objectReference: {fileID: 1364333224}
     - target: {fileID: 2460995752587032150, guid: f300c07c8dec54444bb4a5204277a96f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.74
@@ -31934,6 +31922,8 @@ MonoBehaviour:
   canFlee: 0
   fleeRange: 4
   fleeDistance: 5
+  returnToOrigin: 0
+  maxDistanceFromOrigin: 1
   canChasePlayer: 0
   chaseRadius: 6
   stopDistanceFromPlayer: 1.5

@@ -33,10 +33,10 @@ public class NPC : MonoBehaviour
     private bool isFleeing = false;
     private MovementType previousMovementType;
 
-    //[Header("Return To Origin")]
-    //public bool returnToOrigin = false;
-    //public float maxDistanceFromOrigin = 1f;
-    //protected Vector3 originPosition;
+    [Header("Return To Origin")]
+    public bool returnToOrigin = false;
+    public float maxDistanceFromOrigin = 1f;
+    protected Vector3 originPosition;
 
     [Header("Player Chase")]
     public bool canChasePlayer = false;
@@ -59,7 +59,7 @@ public class NPC : MonoBehaviour
         ApplySkin();
 
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        //originPosition = transform.position;
+        originPosition = transform.position;
 
         ResumeOriginalBehavior();
     }
@@ -68,7 +68,7 @@ public class NPC : MonoBehaviour
     {
         AdjustAnimationsAndRotation();
         HandleFleeLogic();
-        // HandleReturnToOrigin();
+        HandleReturnToOrigin();
         HandleChaseLogic();
     }
 
@@ -170,19 +170,20 @@ public class NPC : MonoBehaviour
         }
     }
 
-    //protected void HandleReturnToOrigin()
-    //{
-    //    if (!returnToOrigin || isFleeing) return;
+    // Volver al punto de origen si se aleja demasiado.
+    protected void HandleReturnToOrigin()
+    {
+        if (!returnToOrigin || isFleeing) return;
 
-    //    float distance = Vector3.Distance(transform.position, originPosition);
-    //    if (distance > maxDistanceFromOrigin)
-    //    {
-    //        StopCurrentRoutine();
-    //        navMeshAgent.SetDestination(originPosition);
-    //    }
-    //}
+        float distance = Vector3.Distance(transform.position, originPosition);
+        if (distance > maxDistanceFromOrigin)
+        {
+            StopCurrentRoutine();
+            navMeshAgent.SetDestination(originPosition);
+        }
+    }
 
-    // Perseguir al jugador al entrar en un radio específico. Para los enemigos.
+        // Perseguir al jugador al entrar en un radio específico. Para los enemigos.
     protected void HandleChaseLogic()
     {
         if (!canChasePlayer || playerTransform == null || isFleeing) return;

@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5465993963703773952}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.66, y: -3.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -225,7 +225,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c11890dc2f9ca49858a4d3797c7afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sheep
-  targetTransform: {fileID: 0}
+  movementType: 0
+  animatorControllers: []
+  selectedSkin: 0
+  pathPoints: []
+  waitTimeInPoint: 3
+  movementRadius: 5
+  waitTimeRandom: 4
+  canFlee: 1
+  fleeRange: 4
+  fleeDistance: 5
+  returnToOrigin: 1
+  maxDistanceFromOrigin: 3
+  canChasePlayer: 0
+  chaseRadius: 6
+  stopDistanceFromPlayer: 1.5
 --- !u!114 &5198327944525149945
 MonoBehaviour:
   m_ObjectHideFlags: 0
