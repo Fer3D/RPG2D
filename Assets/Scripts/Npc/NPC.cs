@@ -22,9 +22,9 @@ public class NPC : MonoBehaviour
     public float waitTimeInPoint = 3f;
     protected int indexPath = 0;
 
-    //[Header("Random Movement")]
-    //public float movementRadius = 5f;
-    //public float waitTimeRandom = 4f;
+    [Header("Random Movement")]
+    public float movementRadius = 5f;
+    public float waitTimeRandom = 4f;
 
     //[Header("Flee Behavior")]
     //public bool canFlee = false;
@@ -98,16 +98,16 @@ public class NPC : MonoBehaviour
         }
     }
 
-    //protected IEnumerator RandomMovement()
-    //{
-    //    while (true)
-    //    {
-    //        Vector3 randomPos = GetRandomNavMeshPosition();
-    //        navMeshAgent.SetDestination(randomPos);
-    //        yield return WaitUntilDestinationReached();
-    //        yield return new WaitForSeconds(waitTimeRandom);
-    //    }
-    //}
+    protected IEnumerator RandomMovement()
+    {
+        while (true)
+        {
+            Vector3 randomPos = GetRandomNavMeshPosition();
+            navMeshAgent.SetDestination(randomPos);
+            yield return WaitUntilDestinationReached();
+            yield return new WaitForSeconds(waitTimeRandom);
+        }
+    }
 
     private IEnumerator WaitUntilDestinationReached()
     {
@@ -121,11 +121,11 @@ public class NPC : MonoBehaviour
         currentMovementRoutine = StartCoroutine(FollowPath());
     }
 
-    //protected void StartRandomRoutine()
-    //{
-    //    StopCurrentRoutine();
-    //    currentMovementRoutine = StartCoroutine(RandomMovement());
-    //}
+    protected void StartRandomRoutine()
+    {
+        StopCurrentRoutine();
+        currentMovementRoutine = StartCoroutine(RandomMovement());
+    }
 
     protected void StopCurrentRoutine()
     {
@@ -136,13 +136,13 @@ public class NPC : MonoBehaviour
         }
     }
 
-    //private Vector3 GetRandomNavMeshPosition()
-    //{
-    //    Vector3 randomDirection = Random.insideUnitSphere * movementRadius + transform.position;
-    //    if (NavMesh.SamplePosition(randomDirection, out NavMeshHit hit, movementRadius, NavMesh.AllAreas))
-    //        return hit.position;
-    //    return transform.position;
-    //}
+    private Vector3 GetRandomNavMeshPosition()
+    {
+        Vector3 randomDirection = Random.insideUnitSphere * movementRadius + transform.position;
+        if (NavMesh.SamplePosition(randomDirection, out NavMeshHit hit, movementRadius, NavMesh.AllAreas))
+            return hit.position;
+        return transform.position;
+    }
 
     //protected void HandleFleeLogic()
     //{
@@ -240,7 +240,7 @@ public class NPC : MonoBehaviour
                 StartPathRoutine();
                 break;
             case MovementType.RandomMovement:
-                //StartRandomRoutine();
+                StartRandomRoutine();
                 break;
             case MovementType.Static:
                 navMeshAgent.ResetPath();

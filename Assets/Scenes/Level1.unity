@@ -462,6 +462,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 513977596}
     m_Modifications:
     - target: {fileID: 1325763113782888211, guid: f300c07c8dec54444bb4a5204277a96f, type: 3}
+      propertyPath: movementType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1325763113782888211, guid: f300c07c8dec54444bb4a5204277a96f, type: 3}
       propertyPath: targetTransform
       value: 
       objectReference: {fileID: 1364333224}
@@ -31921,6 +31925,8 @@ MonoBehaviour:
   - {fileID: 367540494}
   - {fileID: 1340629744}
   waitTimeInPoint: 5
+  movementRadius: 5
+  waitTimeRandom: 4
 --- !u!195 &2020098975
 NavMeshAgent:
   m_ObjectHideFlags: 0
