@@ -26,12 +26,12 @@ public class NPC : MonoBehaviour
     public float movementRadius = 5f;
     public float waitTimeRandom = 4f;
 
-    //[Header("Flee Behavior")]
-    //public bool canFlee = false;
-    //public float fleeRange = 4f;
-    //public float fleeDistance = 5f;
-    //private bool isFleeing = false;
-    //private MovementType previousMovementType;
+    [Header("Flee Behavior")]
+    public bool canFlee = false;
+    public float fleeRange = 4f;
+    public float fleeDistance = 5f;
+    private bool isFleeing = false;
+    private MovementType previousMovementType;
 
     //[Header("Return To Origin")]
     //public bool returnToOrigin = false;
@@ -67,7 +67,7 @@ public class NPC : MonoBehaviour
     protected virtual void Update()
     {
         AdjustAnimationsAndRotation();
-        // HandleFleeLogic();
+        HandleFleeLogic();
         // HandleReturnToOrigin();
         HandleChaseLogic();
     }
@@ -144,30 +144,31 @@ public class NPC : MonoBehaviour
         return transform.position;
     }
 
-    //protected void HandleFleeLogic()
-    //{
-    //    if (!canFlee || playerTransform == null) return;
+    // Escapar del jugador. Por ejemplo para las ovejas.
+    protected void HandleFleeLogic()
+    {
+        if (!canFlee || playerTransform == null) return;
 
-    //    float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
 
-    //    if (distanceToPlayer < fleeRange && !isFleeing)
-    //    {
-    //        isFleeing = true;
-    //        previousMovementType = movementType;
-    //        StopCurrentRoutine();
+        if (distanceToPlayer < fleeRange && !isFleeing)
+        {
+            isFleeing = true;
+            previousMovementType = movementType;
+            StopCurrentRoutine();
 
-    //        Vector3 fleeDirection = (transform.position - playerTransform.position).normalized;
-    //        Vector3 fleeTarget = transform.position + fleeDirection * fleeDistance;
+            Vector3 fleeDirection = (transform.position - playerTransform.position).normalized;
+            Vector3 fleeTarget = transform.position + fleeDirection * fleeDistance;
 
-    //        if (NavMesh.SamplePosition(fleeTarget, out NavMeshHit hit, fleeDistance, NavMesh.AllAreas))
-    //            navMeshAgent.SetDestination(hit.position);
-    //    }
-    //    else if (distanceToPlayer >= fleeRange && isFleeing)
-    //    {
-    //        isFleeing = false;
-    //        ResumeMovementBehavior(previousMovementType);
-    //    }
-    //}
+            if (NavMesh.SamplePosition(fleeTarget, out NavMeshHit hit, fleeDistance, NavMesh.AllAreas))
+                navMeshAgent.SetDestination(hit.position);
+        }
+        else if (distanceToPlayer >= fleeRange && isFleeing)
+        {
+            isFleeing = false;
+            ResumeMovementBehavior(previousMovementType);
+        }
+    }
 
     //protected void HandleReturnToOrigin()
     //{
@@ -181,9 +182,10 @@ public class NPC : MonoBehaviour
     //    }
     //}
 
+    // Perseguir al jugador al entrar en un radio específico. Para los enemigos.
     protected void HandleChaseLogic()
     {
-        if (!canChasePlayer /*|| playerTransform == null || isFleeing*/) return;
+        if (!canChasePlayer || playerTransform == null || isFleeing) return;
 
         float distance = Vector3.Distance(transform.position, playerTransform.position);
 

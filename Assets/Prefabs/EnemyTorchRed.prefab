@@ -190,10 +190,17 @@ MonoBehaviour:
   selectedSkin: 2
   pathPoints: []
   waitTimeInPoint: 3
+  movementRadius: 5
+  waitTimeRandom: 4
+  canFlee: 0
+  fleeRange: 4
+  fleeDistance: 5
+  canChasePlayer: 1
+  chaseRadius: 6
+  stopDistanceFromPlayer: 1.5
   attackRange: 1.5
   stopDistance: 0.5
   attackCooldown: 2
-  lastAttackTime: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 512
