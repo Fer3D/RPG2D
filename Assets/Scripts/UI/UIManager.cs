@@ -5,6 +5,7 @@ public class UIManager : MonoBehaviour
 {
     public GameObject inventory;
     public GameObject pauseMenu;
+    public GameObject statsPanel;
 
     public TMP_Text moneyCountText;
     public TMP_Text woodCountText;
@@ -28,6 +29,11 @@ public class UIManager : MonoBehaviour
     public void OpenOrCloseInventory()
     {
         inventory.SetActive(!inventory.activeSelf);
+    }
+
+    public void OpenOrCloseStatsPlayer()
+    {
+        statsPanel.SetActive(!statsPanel.activeSelf);
     }
 
     public void UpdateMoney(int value)

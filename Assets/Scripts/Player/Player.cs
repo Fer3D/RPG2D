@@ -46,8 +46,8 @@ public class Player : MonoBehaviour
         CheckFlip();
 
         OpenCloseInventory();
-
         OpenClosePauseMenu();
+        OpenCloseStatsPlayer();
 
         Attack();
     }
@@ -75,6 +75,15 @@ public class Player : MonoBehaviour
             UIManager.instance.OpenOrCloseInventory();
         }
     }
+
+    void OpenCloseStatsPlayer()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            UIManager.instance.OpenOrCloseStatsPlayer();
+        }
+    }
+
 
     void OpenClosePauseMenu()
     {
