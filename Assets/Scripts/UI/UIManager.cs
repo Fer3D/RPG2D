@@ -33,7 +33,15 @@ public class UIManager : MonoBehaviour
 
     public void OpenOrCloseStatsPlayer()
     {
-        statsPanel.SetActive(!statsPanel.activeSelf);
+        if (statsPanel.activeSelf == true)
+        {
+            statsPanel.GetComponent<Animator>().Play("Close");
+        }
+        else
+        {
+            statsPanel.SetActive(true);
+            statsPanel.GetComponent<Animator>().Play("Open");
+        }
     }
 
     public void UpdateMoney(int value)

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1349
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 498}
   m_MaxSize: {x: 10000, y: 10000}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 27
+  controlID: 170
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -203,7 +203,7 @@ MonoBehaviour:
   - {fileID: 17}
   - {fileID: 18}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
-  m_EnterPlayModeBehavior: 1
+  m_EnterPlayModeBehavior: 0
   m_UseMipMap: 0
   m_VSyncEnabled: 0
   m_Gizmos: 0
@@ -1044,9 +1044,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 762.542, y: 434.8864, z: -0.069769464}
+    m_Target: {x: 752.7461, y: 337.21042, z: -1.9478443}
     speed: 2
-    m_Value: {x: 762.542, y: 434.8864, z: -0.069769464}
+    m_Value: {x: 752.7461, y: 337.21042, z: -1.9478443}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1096,9 +1096,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 144.29076
+    m_Target: 332.0983
     speed: 2
-    m_Value: 144.29076
+    m_Value: 332.0983
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1378,7 +1378,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -1394
+  m_LastSelectedObjectID: 52828
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1628,7 +1628,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Images/Tiny Swords (Update 010)/UI/Banners
+    - Assets/Scripts
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1638,16 +1638,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Images/Tiny Swords (Update 010)/UI/Banners
+  - Assets/Scripts
   m_LastFoldersGridSize: 96
   m_LastProjectPath: G:\Unity-Projects\RPG2D
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 117}
-    m_SelectedIDs: e2d60000
-    m_LastClickedID: 55010
-    m_ExpandedIDs: 00000000fad50000fcd50000fed5000000d6000002d6000004d6000006d6000008d600000ad600000cd600000ed6000010d6000012d6000014d6000016d6000018d600001ad600001cd600001ed6000020d6000022d60000
+    m_SelectedIDs: 44d60000
+    m_LastClickedID: 54852
+    m_ExpandedIDs: 0000000028d600002ad600002cd600002ed6000030d6000032d6000034d6000036d6000038d600003ad600003cd600003ed6000040d6000042d6000044d6000046d6000048d600004ad600004cd600004ed6000050d60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1676,7 +1676,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fad50000fcd50000fed5000000d6000002d6000004d6000006d6000008d600000ad600000cd600000ed6000010d6000012d6000014d6000016d6000018d600001ad600001cd600001ed6000020d6000022d60000
+    m_ExpandedIDs: 0000000028d600002ad600002cd600002ed6000030d6000032d6000034d6000036d6000038d600003ad600003cd600003ed6000040d6000042d6000044d6000046d6000048d600004ad600004cd600004ed6000050d60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
