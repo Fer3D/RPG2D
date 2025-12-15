@@ -10349,9 +10349,11 @@ MonoBehaviour:
   speed: 5
   canMove: 1
   attackRange: 1.2
+  attackDamage: 1
   targetLayer:
     serializedVersion: 2
     m_Bits: 448
+  currentLevel: 1
 --- !u!61 &1248692037
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51953,6 +51955,11 @@ MonoBehaviour:
   woodCountText: {fileID: 1712340567}
   meatCountText: {fileID: 173328467}
   healthText: {fileID: 529824005}
+  maxHealthText: {fileID: 22174235}
+  levelText: {fileID: 2134077953}
+  attackDamageText: {fileID: 958236577}
+  speedText: {fileID: 1970226325}
+  xpSlider: {fileID: 207637079}
 --- !u!4 &2086065270
 Transform:
   m_ObjectHideFlags: 0

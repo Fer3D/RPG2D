@@ -20,12 +20,19 @@ public class Player : MonoBehaviour
 
     Vector2 attackDir;
     public float attackRange = 1.2f;
+    public int attackDamage = 1;
     public LayerMask targetLayer;
+
+    private int xp = 0;
+    [HideInInspector]
+    public int currentLevel = 1;
 
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        UIManager.instance.UpdatePlayerStats(xp, currentLevel, speed, attackDamage);
     }
 
     void Update()
@@ -178,15 +185,15 @@ public class Player : MonoBehaviour
 
             if (layer == LayerMask.NameToLayer("Enemy"))
             {
-                obj.GetComponent<DamageReceiver>().ApplyDamage(1, true, false, hitDirection);
+                obj.GetComponent<DamageReceiver>().ApplyDamage(attackDamage, true, false, hitDirection);
             }
             else if (layer == LayerMask.NameToLayer("Sheep"))
             {
-                obj.GetComponent<DamageReceiver>().ApplyDamage(1, true, false, hitDirection);
+                obj.GetComponent<DamageReceiver>().ApplyDamage(attackDamage, true, false, hitDirection);
             }
             else if (layer == LayerMask.NameToLayer("Tree"))
             {
-                obj.GetComponent<DamageReceiver>().ApplyDamage(1, false, true, hitDirection);
+                obj.GetComponent<DamageReceiver>().ApplyDamage(attackDamage, false, true, hitDirection);
             }
         }
     }

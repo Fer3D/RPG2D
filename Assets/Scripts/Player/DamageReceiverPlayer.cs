@@ -17,14 +17,14 @@ public class DamageReceiverPlayer : MonoBehaviour
         animator = GetComponent<Animator>();
 
         currentHealth = maxHealth;
-        UIManager.instance.UpdateHealth(currentHealth);
+        UIManager.instance.UpdateHealth(currentHealth, maxHealth);
 
     }
 
     public void ApplyDamage(int amount, bool applyForceOrNot, bool applyHitAnimation, Vector2 hitDirection)
     {
         currentHealth -= amount;
-        UIManager.instance.UpdateHealth(currentHealth);
+        UIManager.instance.UpdateHealth(currentHealth, maxHealth);
 
         if (applyForceOrNot)
         {

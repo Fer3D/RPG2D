@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,7 +11,14 @@ public class UIManager : MonoBehaviour
     public TMP_Text moneyCountText;
     public TMP_Text woodCountText;
     public TMP_Text meatCountText;
+
     public TMP_Text healthText;
+
+    public TMP_Text maxHealthText;
+    public TMP_Text levelText;
+    public TMP_Text attackDamageText;
+    public TMP_Text speedText;
+    public Slider xpSlider;
 
     public static UIManager instance { get; private set; }
 
@@ -59,9 +67,18 @@ public class UIManager : MonoBehaviour
         meatCountText.text = value.ToString();
     }
 
-    public void UpdateHealth(int hpValue)
+    public void UpdateHealth(int hpValue, int maxHealthValue)
     {
         healthText.text = hpValue.ToString();
+        maxHealthText.text = maxHealthValue.ToString();
+    }
+
+    public void UpdatePlayerStats(int xpValue, int levelValue, float speedValue, int attackDamageValue)
+    {
+        xpSlider.value = xpValue;
+        levelText.text = levelValue.ToString();
+        speedText.text = speedValue.ToString();
+        attackDamageText.text = attackDamageValue.ToString();
     }
 
     public void PauseGame()
