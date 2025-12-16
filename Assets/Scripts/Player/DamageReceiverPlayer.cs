@@ -49,6 +49,13 @@ public class DamageReceiverPlayer : MonoBehaviour
         GetComponent<Player>().canMove = true;
     }
 
+    public void GainHealth(int healthAmount)
+    {
+        maxHealth += healthAmount;
+        currentHealth = maxHealth;
+        UIManager.instance.UpdateHealth(currentHealth, maxHealth);
+    }
+
     void Die()
     {
         // Reset Level

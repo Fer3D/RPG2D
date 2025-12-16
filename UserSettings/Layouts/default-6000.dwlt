@@ -1342,9 +1342,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 2b25ea1d3124d4b43850fce90d58b65b, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: ea240cd990e7dea4b946e6eb8d65ca10, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -8442553719432248768, guid: 2b25ea1d3124d4b43850fce90d58b65b, type: 2}
+  - m_Target: {fileID: 2925547127889636630, guid: ea240cd990e7dea4b946e6eb8d65ca10, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1395,7 +1395,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 52438
+  m_LastSelectedObjectID: 51956
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1473,7 +1473,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: fcfaffff
+      m_ExpandedIDs: fcfaffff68cb000070cb000098cb00008ecc0000c8cc0000e0cc0000e8cd00005ace0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1645,7 +1645,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scripts/Player
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1655,15 +1655,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scripts/Player
   m_LastFoldersGridSize: 96
   m_LastProjectPath: G:\Unity-Projects\RPG2D
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 133}
-    m_SelectedIDs: 58d60000
-    m_LastClickedID: 54872
+    m_SelectedIDs: 3cd70000
+    m_LastClickedID: 55100
     m_ExpandedIDs: 000000003cd600003ed6000040d6000042d6000044d6000046d6000048d600004ad600004cd600004ed6000050d6000052d6000054d6000056d6000058d600005ad600005cd600005ed6000060d6000062d6000064d60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

@@ -197,4 +197,55 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    void OnEnable()
+    {
+        DamageReceiver.OnTargetKilled += AddExp;
+    }
+
+    void OnDisable()
+    {
+        DamageReceiver.OnTargetKilled -= AddExp;
+    }
+
+    public void AddExp(int amount)
+    {
+        xp += amount;
+
+        if (xp > 100)
+        {
+            xp -= 100;
+
+            LevelUp();
+        }
+
+        UIManager.instance.UpdatePlayerStats(xp, currentLevel, speed, attackDamage);
+    }
+
+    private void LevelUp()
+    {
+        currentLevel += 1;
+
+        switch (currentLevel)
+        {
+            case 2:
+                speed += 1;
+                attackDamage += 1;
+                GetComponent<DamageReceiverPlayer>().GainHealth(1);
+                break;
+            case 3:
+                speed += 1;
+                attackDamage += 1;
+                GetComponent<DamageReceiverPlayer>().GainHealth(1);
+                break;
+            case 4:
+                speed += 1;
+                attackDamage += 1;
+                GetComponent<DamageReceiverPlayer>().GainHealth(1);
+                break;
+            default:
+                break;
+        }
+
+    }
 }
