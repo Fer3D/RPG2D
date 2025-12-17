@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -27,12 +28,18 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public int currentLevel = 1;
 
+    [Header("Skin")]
+    public NPCSkin selectedSkin;
+    public AnimatorController[] animatorControllers;
+    public enum NPCSkin { Blue, Purple, Red, Yellow }
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
         UIManager.instance.UpdatePlayerStats(xp, currentLevel, speed, attackDamage);
+        ApplySkin();
     }
 
     void Update()
@@ -246,6 +253,28 @@ public class Player : MonoBehaviour
             default:
                 break;
         }
+    }
 
+    void ApplySkin()
+    {
+        string savedSkinName = PlayerPrefs.GetString("MainPlayerSkin", "Blue");
+
+        if (System.Enum.TryParse(savedSkinName, out NPCSkin skin))
+        {
+            selectedSkin = skin;
+        }
+        else
+        {
+            selectedSkin = NPCSkin.Blue;
+        }
+
+        if (animatorControllers != null && animatorControllers.Length > 0)
+        {
+            int skinIndex = (int)selectedSkin;
+            if (animator != null && skinIndex < animatorControllers.Length)
+            {
+                animator.runtimeAnimatorController = animatorControllers[skinIndex];
+            }
+        }
     }
 }

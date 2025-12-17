@@ -12,9 +12,9 @@ public class NPC : MonoBehaviour
     public enum MovementType { Static, Path, RandomMovement }
     public MovementType movementType;
 
-    public AnimatorController[] animatorControllers;
+    [Header("Skin")]
     public NPCSkin selectedSkin;
-
+    public AnimatorController[] animatorControllers;
     public enum NPCSkin { Blue, Purple, Red, Yellow }
 
     [Header("Path Movement")]
@@ -183,7 +183,7 @@ public class NPC : MonoBehaviour
         }
     }
 
-        // Perseguir al jugador al entrar en un radio específico. Para los enemigos.
+    // Perseguir al jugador al entrar en un radio específico. Para los enemigos.
     protected void HandleChaseLogic()
     {
         if (!canChasePlayer || playerTransform == null || isFleeing) return;
@@ -216,7 +216,7 @@ public class NPC : MonoBehaviour
         }
     }
 
-    public virtual void ApplySkin()
+    void ApplySkin()
     {
         if (animatorControllers != null && animatorControllers.Length > 0)
         {

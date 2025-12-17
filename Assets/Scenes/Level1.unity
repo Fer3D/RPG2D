@@ -10354,6 +10354,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 448
   currentLevel: 1
+  selectedSkin: 0
+  animatorControllers:
+  - {fileID: 9100000, guid: ea240cd990e7dea4b946e6eb8d65ca10, type: 2}
+  - {fileID: 9100000, guid: 39d73cebf3805ec42a1dbad0d8640db4, type: 2}
+  - {fileID: 9100000, guid: ce7af338d0e114c4f969514cb6fa26a1, type: 2}
+  - {fileID: 9100000, guid: 70c59bd026539d74e9a36715bdc2c3cb, type: 2}
 --- !u!61 &1248692037
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34114,12 +34120,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NeutralNPC
   movementType: 1
+  selectedSkin: 0
   animatorControllers:
   - {fileID: 9100000, guid: 980a5e277e436d04d9918b649d5569be, type: 2}
   - {fileID: 9100000, guid: 0ae7c74166167174a9bb3b07e40b9b6d, type: 2}
   - {fileID: 9100000, guid: bbd43c1c01840b64988bb1a7eca199fa, type: 2}
   - {fileID: 9100000, guid: cbf7d81cbe95e474db05b7f0d06e8129, type: 2}
-  selectedSkin: 0
   pathPoints:
   - {fileID: 367540494}
   - {fileID: 1340629744}
