@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class UIManager : MonoBehaviour
     public GameObject inventory;
     public GameObject pauseMenu;
     public GameObject statsPanel;
+    public GameObject pauseMenuButton;
 
     public TMP_Text moneyCountText;
     public TMP_Text woodCountText;
@@ -84,12 +86,20 @@ public class UIManager : MonoBehaviour
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
+        pauseMenuButton.SetActive(false);
         Time.timeScale = 0;
     }
 
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
+        pauseMenuButton.SetActive(true);
         Time.timeScale = 1;
+    }
+
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
     }
 }
