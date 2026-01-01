@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\Player\DamageReceiverPlayer.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Npc\NeutralNPC.cs" />
+    <Compile Include="Assets\Scripts\LightFlickering.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>
