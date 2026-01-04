@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
         OpenCloseInventory();
         OpenClosePauseMenu();
         OpenCloseStatsPlayer();
+        OpenCloseQuestPanel();
 
         Attack();
     }
@@ -274,6 +275,21 @@ public class Player : MonoBehaviour
             if (animator != null && skinIndex < animatorControllers.Length)
             {
                 animator.runtimeAnimatorController = animatorControllers[skinIndex];
+            }
+        }
+    }
+
+    public void OpenCloseQuestPanel()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (UIManager.instance.questPanel.activeSelf)
+            {
+                UIManager.instance.HideQuestPanel();
+            }
+            else
+            {
+                UIManager.instance.ShowQuestPanel();
             }
         }
     }

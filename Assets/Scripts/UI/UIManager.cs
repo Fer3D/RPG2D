@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject statsPanel;
     public GameObject pauseMenuButton;
+    public GameObject questPanel;
 
     public TMP_Text moneyCountText;
     public TMP_Text woodCountText;
@@ -21,6 +22,12 @@ public class UIManager : MonoBehaviour
     public TMP_Text attackDamageText;
     public TMP_Text speedText;
     public Slider xpSlider;
+
+    public TMP_Text requireMoneyCountText;
+    public TMP_Text requireWoodCountText;
+    public TMP_Text requireMeatCountText;
+    public TMP_Text questText;
+
 
     public static UIManager instance { get; private set; }
 
@@ -101,5 +108,23 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ShowQuestPanel()
+    {
+        questPanel.SetActive(true);
+    }
+
+    public void HideQuestPanel()
+    {
+        questPanel.SetActive(false);
+    }
+
+    public void UpdateRequiredResourcesQuestAndName(int moneyAmount, int woodAmount, int meatAmount, string questName)
+    {
+        requireMoneyCountText.text = moneyAmount.ToString();
+        requireWoodCountText.text = woodAmount.ToString();
+        requireMeatCountText.text = meatAmount.ToString();
+        questText.text = questName.ToString();
     }
 }

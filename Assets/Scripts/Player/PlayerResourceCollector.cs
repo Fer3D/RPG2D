@@ -28,4 +28,19 @@ public class PlayerResourceCollector : MonoBehaviour
             UIManager.instance.UpdateWood(wood);
         }
     }
+
+    public void UpdateAllResources()
+    {
+        UIManager.instance.UpdateMoney(money);
+        UIManager.instance.UpdateMeat(meat);
+        UIManager.instance.UpdateWood(wood);
+    }
+
+    public int GetMoney() => money;
+    public int GetMeat() => meat;
+    public int GetWood() => wood;
+
+    public void SetMoney(int amount) => money = amount;
+    public void SetMeat(int amount) => meat = amount;
+    public void SetWood(int amount) => wood = amount;
 }

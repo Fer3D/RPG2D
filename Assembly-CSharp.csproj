@@ -56,11 +56,13 @@
     <Compile Include="Assets\Scripts\Sheep\Sheep.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerResourceCollector.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Quests\Quest.cs" />
     <Compile Include="Assets\Scripts\Player\DamageReceiverPlayer.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Npc\NeutralNPC.cs" />
     <Compile Include="Assets\Scripts\LightFlickering.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Quests\QuestManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
