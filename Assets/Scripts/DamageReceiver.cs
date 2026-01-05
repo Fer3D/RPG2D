@@ -15,6 +15,8 @@ public class DamageReceiver : MonoBehaviour
     public int xpOnDeath = 25;
     public static event System.Action<int> OnTargetKilled;
 
+    public AudioSource audioSource;
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -25,6 +27,12 @@ public class DamageReceiver : MonoBehaviour
     public void ApplyDamage(int amount, bool applyForceOrNot, bool applyHitAnimation, Vector2 hitDirection)
     {
         currentHealth -= amount;
+
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
+
         if (applyForceOrNot)
         {
             rb2D.bodyType = RigidbodyType2D.Dynamic;

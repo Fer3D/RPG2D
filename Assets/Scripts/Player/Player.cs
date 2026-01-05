@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     public AnimatorController[] animatorControllers;
     public enum NPCSkin { Blue, Purple, Red, Yellow }
 
+    public AudioSource audioAttack;
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -130,6 +132,8 @@ public class Player : MonoBehaviour
             int randomIndex = Random.Range(0, 2);
             animator.SetInteger("AttackIndex", randomIndex);
             animator.SetTrigger("DoAttack");
+
+            audioAttack.PlayOneShot(audioAttack.clip);
         }
     }
 

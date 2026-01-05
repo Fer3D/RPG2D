@@ -7,6 +7,8 @@ public class PlayerResourceCollector : MonoBehaviour
     private int meat = 0;
     private int wood = 0;
 
+    public AudioSource audioTakeItem;
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("MoneyBag"))
@@ -14,18 +16,21 @@ public class PlayerResourceCollector : MonoBehaviour
             Destroy(collision.gameObject);
             money ++;
             UIManager.instance.UpdateMoney(money);
+            audioTakeItem.Play();
         }
         else if (collision.gameObject.CompareTag("Meat"))
         {
             Destroy(collision.gameObject);
             meat ++;
             UIManager.instance.UpdateMeat(meat);
+            audioTakeItem.Play();
         }
         else if (collision.gameObject.CompareTag("Wood"))
         {
             Destroy(collision.gameObject);
             wood ++;
             UIManager.instance.UpdateWood(wood);
+            audioTakeItem.Play();
         }
     }
 
