@@ -11,6 +11,10 @@ public class UIManager : MonoBehaviour
     public GameObject pauseMenuButton;
     public GameObject questPanel;
     public GameObject diePanel;
+    public GameObject borderMinimap;
+    public GameObject storyPanel;
+    public GameObject startStoryText;
+    public GameObject endStoryText;
 
     public TMP_Text moneyCountText;
     public TMP_Text woodCountText;
@@ -95,6 +99,7 @@ public class UIManager : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         pauseMenuButton.SetActive(false);
+        borderMinimap.SetActive(false);
         Time.timeScale = 0;
     }
 
@@ -102,6 +107,7 @@ public class UIManager : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         pauseMenuButton.SetActive(true);
+        borderMinimap.SetActive(true);
         Time.timeScale = 1;
     }
 
@@ -132,5 +138,32 @@ public class UIManager : MonoBehaviour
     public void DiePanelAnimation()
     {
         diePanel.SetActive(true);
+    }
+
+    public void StartStory()
+    {
+        storyPanel.SetActive(true);
+        startStoryText.SetActive(true);
+        endStoryText.SetActive(false);
+        Invoke("CloseStory", 10);
+    }
+
+    public void EndStory()
+    {
+        storyPanel.SetActive(true);
+        startStoryText.SetActive(false);
+        endStoryText.SetActive(true);
+        Invoke("CloseStoryAndGoToMainMenu", 10);
+    }
+
+    public void CloseStory()
+    {
+        storyPanel.SetActive(false);
+    }
+
+    public void CloseStoryAndGoToMainMenu()
+    {
+        storyPanel.SetActive(false);
+        SceneManager.LoadScene("MainMenu");
     }
 }

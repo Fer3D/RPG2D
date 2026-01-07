@@ -9,6 +9,10 @@ public class Enemy : NPC
     public float attackCooldown = 2f;
     private float lastAttackTime = 0;
 
+    [Header("Attack")]
+    [Tooltip("Damage this enemy deals to the player")]
+    public int attackDamage = 1;
+
     private bool isAttacking = false;
     private bool canMove = true;
 
@@ -104,7 +108,7 @@ public class Enemy : NPC
             {
                 Vector2 hitDirection = (target.transform.position - transform.position).normalized;
 
-                obj.GetComponent<DamageReceiverPlayer>().ApplyDamage(1, true, false, hitDirection);
+                obj.GetComponent<DamageReceiverPlayer>().ApplyDamage(attackDamage, true, false, hitDirection);
 
                 damagedTargets.Add(obj);
             }

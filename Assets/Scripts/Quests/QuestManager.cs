@@ -12,6 +12,7 @@ public class QuestManager : MonoBehaviour
     private void Start()
     {
         player = FindFirstObjectByType<PlayerResourceCollector>();
+        UIManager.instance.StartStory();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -58,6 +59,7 @@ public class QuestManager : MonoBehaviour
         {
             UIManager.instance.HideQuestPanel();
             questActive = false;
+            UIManager.instance.EndStory();
         }
     }
 }
