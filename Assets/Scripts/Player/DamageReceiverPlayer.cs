@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DamageReceiverPlayer : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class DamageReceiverPlayer : MonoBehaviour
     private Animator animator;
 
     public float forceImpulse = 5;
+
+    public AudioSource audioDie;
 
     void Start()
     {
@@ -58,6 +61,16 @@ public class DamageReceiverPlayer : MonoBehaviour
 
     void Die()
     {
-        // Reset Level
+        GetComponent<Player>().enabled = false; // Deshabilitamos el script del Player para que no se pueda mover al morir
+        animator.SetTrigger("Die");
+        UIManager.instance.DiePanelAnimation();
+        audioDie.Play();
+        Invoke("ResetLevel", 2);
+    }
+
+    public void ResetLevel()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 }

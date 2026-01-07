@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject statsPanel;
     public GameObject pauseMenuButton;
     public GameObject questPanel;
+    public GameObject diePanel;
 
     public TMP_Text moneyCountText;
     public TMP_Text woodCountText;
@@ -126,5 +127,10 @@ public class UIManager : MonoBehaviour
         requireWoodCountText.text = woodAmount.ToString();
         requireMeatCountText.text = meatAmount.ToString();
         questText.text = questName.ToString();
+    }
+
+    public void DiePanelAnimation()
+    {
+        diePanel.SetActive(true);
     }
 }
