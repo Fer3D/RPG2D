@@ -1,4 +1,3 @@
-using UnityEditor.Animations;
 using UnityEngine;
 using System.Collections;
 
@@ -31,7 +30,7 @@ public class Player : MonoBehaviour
 
     [Header("Skin")]
     public NPCSkin selectedSkin;
-    public AnimatorController[] animatorControllers;
+    public RuntimeAnimatorController[] animatorControllers;
     public enum NPCSkin { Blue, Purple, Red, Yellow }
 
     public AudioSource audioAttack;
