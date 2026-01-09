@@ -44,16 +44,32 @@ public class Player : MonoBehaviour
     public float dashCooldown = 1f;
     private bool isDashing = false;
     private float lastDashTime = -Mathf.Infinity;
+    private bool isLoaded = false;
+
+    void Awake()
+    {
+        if (PlayerPrefs.GetInt("LoadOnStart", 0) == 1)
+        {
+            PlayerPrefs.SetInt("IsLoadedGame", 1);
+            isLoaded = true;
+            PlayerPrefs.SetInt("LoadOnStart", 0);
+        }
+    }
 
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
+        saveLoad = FindAnyObjectByType<SaveLoadManagerJson>();
+
         UIManager.instance.UpdatePlayerStats(xp, currentLevel, speed, attackDamage);
         ApplySkin();
 
-        saveLoad = FindAnyObjectByType<SaveLoadManagerJson>();
+        if (isLoaded)
+        {
+            LoadGame();
+        }
     }
 
     public void SaveGame()

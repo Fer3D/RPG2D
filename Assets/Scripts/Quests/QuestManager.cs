@@ -12,7 +12,11 @@ public class QuestManager : MonoBehaviour
     private void Start()
     {
         player = FindFirstObjectByType<PlayerResourceCollector>();
-        UIManager.instance.StartStory();
+        if (PlayerPrefs.GetInt("IsLoadedGame", 0) == 0)
+        {
+            UIManager.instance.StartStory();
+        }
+        PlayerPrefs.SetInt("IsLoadedGame", 0);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

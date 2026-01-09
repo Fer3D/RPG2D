@@ -166,4 +166,13 @@ public class UIManager : MonoBehaviour
         storyPanel.SetActive(false);
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void SaveGame()
+    {
+        Player player = FindObjectOfType<Player>();
+        if (player != null)
+        {
+            player.SaveGame();
+        }
+    }
 }
