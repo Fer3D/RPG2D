@@ -36,10 +36,7 @@ public class EnemySpawner : MonoBehaviour
 
                 // Instanciar el enemigo
                 GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-                activeEnemies.Add(newEnemy);            }
-            else
-            {
-                Debug.Log("Límite de enemigos alcanzado. Esperando...");
+                activeEnemies.Add(newEnemy);
             }
 
             // Esperar el intervalo
