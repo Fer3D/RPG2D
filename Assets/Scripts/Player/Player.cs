@@ -1,5 +1,6 @@
 using UnityEditor.Animations;
 using UnityEngine;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
@@ -36,6 +37,13 @@ public class Player : MonoBehaviour
     public AudioSource audioAttack;
 
     SaveLoadManagerJson saveLoad;
+
+    [Header("Dash")]
+    public float dashSpeed = 15f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 1f;
+    private bool isDashing = false;
+    private float lastDashTime = -Mathf.Infinity;
 
     void Start()
     {
@@ -129,6 +137,7 @@ public class Player : MonoBehaviour
         OpenCloseQuestPanel();
 
         Attack();
+        Dash();
     }
 
     private void FixedUpdate()
@@ -197,6 +206,34 @@ public class Player : MonoBehaviour
 
             audioAttack.PlayOneShot(audioAttack.clip);
         }
+    }
+
+    void Dash()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !isDashing && Time.time >= lastDashTime + dashCooldown)
+        {
+            Vector2 dashDir = lastMovementDir;
+            if (dashDir == Vector2.zero)
+            {
+                dashDir = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+            }
+            StartCoroutine(PerformDash(dashDir));
+        }
+    }
+
+    private IEnumerator PerformDash(Vector2 direction)
+    {
+        isDashing = true;
+        canMove = false;
+        lastDashTime = Time.time;
+
+        rb2D.linearVelocity = direction.normalized * dashSpeed;
+
+        yield return new WaitForSeconds(dashDuration);
+
+        rb2D.linearVelocity = Vector2.zero;
+        canMove = true;
+        isDashing = false;
     }
 
     public void StartAttack()

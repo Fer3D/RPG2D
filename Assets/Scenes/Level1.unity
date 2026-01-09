@@ -9907,7 +9907,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5290583573832859479, guid: 0b70f169b6f07304499e7e22df2be570, type: 3}
       propertyPath: m_Name
-      value: EnemyTorchRed (3)
+      value: EnemyTorchRed
       objectReference: {fileID: 0}
     - target: {fileID: 5855655936222496672, guid: 0b70f169b6f07304499e7e22df2be570, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14355,6 +14355,9 @@ MonoBehaviour:
   - {fileID: 9100000, guid: ce7af338d0e114c4f969514cb6fa26a1, type: 2}
   - {fileID: 9100000, guid: 70c59bd026539d74e9a36715bdc2c3cb, type: 2}
   audioAttack: {fileID: 1248692045}
+  dashSpeed: 15
+  dashDuration: 0.2
+  dashCooldown: 0
 --- !u!61 &1248692037
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37620,7 +37623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290583573832859479, guid: 0b70f169b6f07304499e7e22df2be570, type: 3}
       propertyPath: m_Name
-      value: EnemyTorchRed (2)
+      value: EnemyTorchRed
       objectReference: {fileID: 0}
     - target: {fileID: 5855655936222496672, guid: 0b70f169b6f07304499e7e22df2be570, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38397,7 +38400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290583573832859479, guid: 0b70f169b6f07304499e7e22df2be570, type: 3}
       propertyPath: m_Name
-      value: EnemyTorchRed (1)
+      value: EnemyTorchRed
       objectReference: {fileID: 0}
     - target: {fileID: 5855655936222496672, guid: 0b70f169b6f07304499e7e22df2be570, type: 3}
       propertyPath: m_LocalPosition.x
