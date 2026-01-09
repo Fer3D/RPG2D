@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Mine\MineDoor.cs" />
     <Compile Include="Assets\Scripts\Npc\NPC.cs" />
+    <Compile Include="Assets\Scripts\TreeRespawn.cs" />
     <Compile Include="Assets\Scripts\UI\StatsPlayerPanel.cs" />
     <Compile Include="Assets\Scripts\SaveLoadManager\SaveLoadManagerJson.cs" />
     <Compile Include="Assets\Scripts\SaveLoadManager\SaveData.cs" />

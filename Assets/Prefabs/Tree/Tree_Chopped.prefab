@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4508233367254957257}
   - component: {fileID: 5836835341404666061}
   - component: {fileID: 5602832102490133081}
+  - component: {fileID: -1812901367786529618}
   m_Layer: 0
   m_Name: Tree_Chopped
   m_TagString: Untagged
@@ -137,3 +138,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.4998417, y: 0.36722946}
   m_EdgeRadius: 0
+--- !u!114 &-1812901367786529618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261300537329897387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c978181ba245684799fc1a1f152ad41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TreeRespawn
+  normalTreePrefab: {fileID: 6356555540461710190, guid: 04adfa38043f7544ea314b35ec0f3080, type: 3}
+  respawnTime: 60
