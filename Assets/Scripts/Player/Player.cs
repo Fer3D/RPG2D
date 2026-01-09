@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
 
     public AudioSource audioAttack;
 
+    SaveLoadManagerJson saveLoad;
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -42,10 +44,70 @@ public class Player : MonoBehaviour
 
         UIManager.instance.UpdatePlayerStats(xp, currentLevel, speed, attackDamage);
         ApplySkin();
+
+        saveLoad = FindAnyObjectByType<SaveLoadManagerJson>();
+    }
+
+    public void SaveGame()
+    {
+        int health = GetComponent<DamageReceiverPlayer>().currentHealth;
+        int maxHealth = GetComponent<DamageReceiverPlayer>().maxHealth;
+        Vector2 position = transform.position;
+        var resourceCollector = GetComponent<PlayerResourceCollector>();
+        int money = resourceCollector != null ? resourceCollector.GetMoney() : 0;
+        int meat = resourceCollector != null ? resourceCollector.GetMeat() : 0;
+        int wood = resourceCollector != null ? resourceCollector.GetWood() : 0;
+        PlayerPrefs.SetString("MainPlayerSkin", selectedSkin.ToString());
+        saveLoad.SaveGame(speed, xp, currentLevel, attackDamage, selectedSkin.ToString(), health, maxHealth, position, money, meat, wood);
+    }
+
+    public void LoadGame()
+    {
+        SaveData loadedData = saveLoad.LoadGame();
+        if (loadedData != null)
+        {
+            speed = loadedData.speed;
+            xp = loadedData.xp;
+            currentLevel = loadedData.currentLevel;
+            attackDamage = loadedData.attackDamage;
+            if (!string.IsNullOrEmpty(loadedData.selectedSkin))
+            {
+                if (System.Enum.TryParse(loadedData.selectedSkin, out NPCSkin skin))
+                {
+                    selectedSkin = skin;
+                    PlayerPrefs.SetString("MainPlayerSkin", loadedData.selectedSkin);
+                }
+            }
+            GetComponent<DamageReceiverPlayer>().currentHealth = loadedData.health;
+            GetComponent<DamageReceiverPlayer>().maxHealth = loadedData.maxHealth;
+            transform.position = loadedData.position;
+            var resourceCollector = GetComponent<PlayerResourceCollector>();
+            if (resourceCollector != null)
+            {
+                resourceCollector.SetMoney(loadedData.money);
+                resourceCollector.SetMeat(loadedData.meat);
+                resourceCollector.SetWood(loadedData.wood);
+                resourceCollector.UpdateAllResources();
+            }
+            ApplySkin();
+            UIManager.instance.UpdatePlayerStats(xp, currentLevel, speed, attackDamage);
+            UIManager.instance.UpdateHealth(loadedData.health, loadedData.maxHealth);
+        }
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SaveGame();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadGame();
+        }
+
+
         if (movementInput != Vector2.zero)
         {
             lastMovementDir = movementInput;

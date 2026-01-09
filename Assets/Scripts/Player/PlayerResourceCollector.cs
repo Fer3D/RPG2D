@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerResourceCollector : MonoBehaviour
 {
@@ -7,28 +8,36 @@ public class PlayerResourceCollector : MonoBehaviour
     private int meat = 0;
     private int wood = 0;
 
+    private HashSet<int> collectedObjects = new HashSet<int>();
+
     public AudioSource audioTakeItem;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        int objectId = collision.gameObject.GetInstanceID();
+        if (collectedObjects.Contains(objectId)) return;
+
         if (collision.gameObject.CompareTag("MoneyBag"))
         {
+            collectedObjects.Add(objectId);
             Destroy(collision.gameObject);
-            money ++;
+            money++;
             UIManager.instance.UpdateMoney(money);
             audioTakeItem.Play();
         }
         else if (collision.gameObject.CompareTag("Meat"))
         {
+            collectedObjects.Add(objectId);
             Destroy(collision.gameObject);
-            meat ++;
+            meat++;
             UIManager.instance.UpdateMeat(meat);
             audioTakeItem.Play();
         }
         else if (collision.gameObject.CompareTag("Wood"))
         {
+            collectedObjects.Add(objectId);
             Destroy(collision.gameObject);
-            wood ++;
+            wood++;
             UIManager.instance.UpdateWood(wood);
             audioTakeItem.Play();
         }

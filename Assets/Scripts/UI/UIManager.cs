@@ -145,7 +145,7 @@ public class UIManager : MonoBehaviour
         storyPanel.SetActive(true);
         startStoryText.SetActive(true);
         endStoryText.SetActive(false);
-        Invoke("CloseStory", 10);
+        Invoke("CloseStory", 1);
     }
 
     public void EndStory()
@@ -153,7 +153,7 @@ public class UIManager : MonoBehaviour
         storyPanel.SetActive(true);
         startStoryText.SetActive(false);
         endStoryText.SetActive(true);
-        Invoke("CloseStoryAndGoToMainMenu", 10);
+        Invoke("CloseStoryAndGoToMainMenu", 1);
     }
 
     public void CloseStory()

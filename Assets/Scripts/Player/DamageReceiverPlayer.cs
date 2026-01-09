@@ -5,7 +5,7 @@ public class DamageReceiverPlayer : MonoBehaviour
 {
     [Header("Stats")]
     public int maxHealth = 5;
-    private int currentHealth;
+    public int currentHealth;
 
     private Rigidbody2D rb2D;
     private Animator animator;
