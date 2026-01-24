@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
+    public static QuestManager instance;
     public Quest[] quests;
     public int currentQuestIndex = 0;
 
@@ -11,6 +12,7 @@ public class QuestManager : MonoBehaviour
 
     private void Start()
     {
+        instance = this;
         player = FindFirstObjectByType<PlayerResourceCollector>();
         if (PlayerPrefs.GetInt("IsLoadedGame", 0) == 0)
         {
@@ -18,6 +20,8 @@ public class QuestManager : MonoBehaviour
         }
         PlayerPrefs.SetInt("IsLoadedGame", 0);
     }
+
+    public bool QuestActive { get { return questActive; } }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

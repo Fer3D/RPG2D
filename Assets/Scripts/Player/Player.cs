@@ -401,6 +401,9 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            QuestManager qm = QuestManager.instance != null ? QuestManager.instance : Object.FindFirstObjectByType<QuestManager>();
+            if (qm == null || !qm.QuestActive) return;
+
             if (UIManager.instance.questPanel.activeSelf)
             {
                 UIManager.instance.HideQuestPanel();

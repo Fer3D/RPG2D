@@ -169,7 +169,7 @@ public class UIManager : MonoBehaviour
 
     public void SaveGame()
     {
-        Player player = FindObjectOfType<Player>();
+        Player player = Object.FindFirstObjectByType<Player>();
         if (player != null)
         {
             player.SaveGame();
