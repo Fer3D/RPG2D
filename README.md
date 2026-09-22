@@ -1,8 +1,5 @@
 # Tiny Warrior
-
 <img width="958" height="599" alt="Menú principal" src="https://github.com/user-attachments/assets/6d929728-2212-4411-8fcd-8012b0614d35" />
-
-<img width="958" height="593" alt="Gameplay" src="https://github.com/user-attachments/assets/f3076930-18d0-4378-9f45-965d30088120" />
 
 RPG 2D top-down en pixel art. Eres un caballero chiquito, recoges recursos, matas lo que se cruce y vas completando misiones hasta terminar la historia.
 
@@ -71,3 +68,5 @@ Pathfinding 2D con NavMeshPlus. Audio, árboles que respawnean, spawner de enemi
 ## Notas
 
 Proyecto personal / portfolio. No es un MMORPG ni tiene multiplayer. Un mapa, un loop de quests, y listo.
+
+<img width="958" height="593" alt="Gameplay" src="https://github.com/user-attachments/assets/f3076930-18d0-4378-9f45-965d30088120" />
