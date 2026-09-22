@@ -3,7 +3,7 @@
 
 RPG 2D top-down en pixel art. Eres un caballero chiquito, recoges recursos, matas lo que se cruce y vas completando misiones hasta terminar la historia.
 
-Hecho en Unity 6.
+Hecho en Unity 6. Se puede jugar desde el navegador aquí: [cuboxis.itch.io/tiny-warrior](https://cuboxis.itch.io/tiny-warrior).
 
 ## Cómo se juega
 
